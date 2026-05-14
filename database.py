@@ -3,12 +3,16 @@ import sqlite3
 connection = sqlite3.connect('tickets.db')
 cursor = connection.cursor()
 
+cursor.execute('DROP TABLE IF EXISTS bookings')
+
 cursor.execute('''
-CREATE TABLE IF NOT EXISTS bookings (
+CREATE TABLE bookings (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     full_name TEXT,
     email TEXT,
     phone TEXT,
+    date_of_birth TEXT,
+    ic_number TEXT,
     payment_reference TEXT,
     ticket_id TEXT
 )

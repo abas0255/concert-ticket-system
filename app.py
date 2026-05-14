@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template
 import sqlite3
 import uuid
 
@@ -14,6 +14,8 @@ def book_ticket():
     full_name = request.form.get('full_name')
     email = request.form.get('email')
     phone = request.form.get('phone')
+    date_of_birth = request.form.get('date_of_birth')
+    ic_number = request.form.get('ic_number')
     payment_reference = request.form.get('payment_reference')
 
     ticket_id = str(uuid.uuid4())[:8]
@@ -26,13 +28,17 @@ def book_ticket():
         full_name,
         email,
         phone,
+        date_of_birth,
+        ic_number,
         payment_reference,
         ticket_id
-    ) VALUES (?, ?, ?, ?, ?)
+    ) VALUES (?, ?, ?, ?, ?, ?, ?)
     ''', (
         full_name,
         email,
         phone,
+        date_of_birth,
+        ic_number,
         payment_reference,
         ticket_id
     ))
