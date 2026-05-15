@@ -14,7 +14,12 @@ CREATE TABLE bookings (
     date_of_birth TEXT,
     ic_number TEXT,
     payment_reference TEXT,
-    ticket_id TEXT
+    seat_type TEXT,
+    number_of_pax INTEGER,
+    ticket_id TEXT,
+    queue_number INTEGER,
+    ip_address TEXT,
+    booking_timestamp TEXT
 )
 ''')
 
